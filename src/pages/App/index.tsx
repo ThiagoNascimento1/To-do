@@ -3,6 +3,7 @@ import * as C from './styles';
 
 // Components
 import { ListItem } from '../../components/ListItem';
+import { AddArea } from '../../components/AddArea';
 
 // Hooks 
 import { useState } from 'react';
@@ -23,6 +24,8 @@ export const App = () => {
       <C.Container>
         <C.AreaApp>
           <C.Header>Lista de Tarefas</C.Header>
+
+            <AddArea />
 
             {list.map((item, key) => (
               <ListItem item={item} key={key} />
