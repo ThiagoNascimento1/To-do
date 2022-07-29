@@ -13,11 +13,18 @@ import { Item } from '../../types/Item';
 
 export const App = () => {
 
-  const [ list, setList ] = useState<Item[]>([
-    {id: 1, description: 'estudar', done: true},
-    {id: 2, description: 'trabalhar', done: false},
-    {id: 3, description: 'fazer a merenda', done: false}
-  ]);
+  const [ list, setList ] = useState<Item[]>([]);
+
+  // adicionado novos item a lista
+  const handleAddItem = (descriptionItem: string) => {
+    const newItem = {
+      id: list.length + 1,
+      description: descriptionItem,
+      done: false
+    }
+
+    setList(prevState => [...prevState, newItem]);
+  };
 
   return (
     <div className="container">
@@ -25,7 +32,7 @@ export const App = () => {
         <C.AreaApp>
           <C.Header>Lista de Tarefas</C.Header>
 
-            <AddArea />
+            <AddArea addItem={handleAddItem}/>
 
             {list.map((item, key) => (
               <ListItem item={item} key={key} />

@@ -8,14 +8,18 @@ export const Container = styled.div`
     padding: 10px;
     margin: 20px 0;
 
-    .icon-add {
-        margin-right: 5px;
-    }
-
     input {
         flex: 1;
         font-size: 20px;
         background-color: transparent;
         color: #fff;
+    }
+
+    .icon-add {
+        margin-right: 5px;
+        padding: 2px;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
     }
 `;
