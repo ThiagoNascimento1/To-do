@@ -15,6 +15,12 @@ export const App = () => {
 
   const [ list, setList ] = useState<Item[]>([]);
 
+  // alterando valor done
+  const handleChecked = (item: Item, isChecked: boolean) => {
+    item.done = isChecked;
+    return item;
+  };
+
   // adicionado novos item a lista
   const handleAddItem = (descriptionItem: string) => {
     const newItem = {
@@ -35,7 +41,7 @@ export const App = () => {
             <AddArea addItem={handleAddItem}/>
 
             {list.map((item, key) => (
-              <ListItem item={item} key={key} />
+              <ListItem item={item} handleChecked={handleChecked} key={key} />
             ))}
 
         </C.AreaApp>
