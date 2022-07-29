@@ -23,6 +23,8 @@ export const AddArea = ({ addItem }: Props) => {
             <input 
                 type="text"
                 placeholder="Adicione uma tarefa"
+                spellCheck="false"
+                autoComplete="false"
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)}
                 onKeyUp={(e: KeyboardEvent) => e.code === 'Enter' && handleKeyUp()}

@@ -24,12 +24,18 @@ export const App = () => {
   // adicionado novos item a lista
   const handleAddItem = (descriptionItem: string) => {
     const newItem = {
-      id: list.length + 1,
       description: descriptionItem,
       done: false
     }
 
     setList(prevState => [...prevState, newItem]);
+  };
+
+  // deletando itens da lista
+  const handleRemoveItem = (item: Item) => {
+    setList((prevState) => {
+      return prevState.filter((task) => task !== item);
+    })
   };
 
   return (
@@ -41,7 +47,12 @@ export const App = () => {
             <AddArea addItem={handleAddItem}/>
 
             {list.map((item, key) => (
-              <ListItem item={item} handleChecked={handleChecked} key={key} />
+              <ListItem
+                item={item}
+                handleChecked={handleChecked}
+                handleRemoveItem={handleRemoveItem}
+                key={key}
+              />
             ))}
 
         </C.AreaApp>
