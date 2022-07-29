@@ -4,6 +4,7 @@ import * as C from './styles';
 // Components
 import { ListItem } from '../../components/ListItem';
 import { AddArea } from '../../components/AddArea';
+import { ClearList } from '../../components/ClearList';
 
 // Hooks 
 import { useState } from 'react';
@@ -31,12 +32,15 @@ export const App = () => {
     setList(prevState => [...prevState, newItem]);
   };
 
-  // deletando itens da lista
+  // deletando item da lista
   const handleRemoveItem = (item: Item) => {
     setList((prevState) => {
       return prevState.filter((task) => task !== item);
     })
   };
+
+  // limpando a lista
+  const handleClearList = () => setList([]);
 
   return (
     <div className="container">
@@ -54,6 +58,8 @@ export const App = () => {
                 key={key}
               />
             ))}
+
+            {list.length > 0 && <ClearList handleClearList={handleClearList} />}
 
         </C.AreaApp>
       </C.Container>
